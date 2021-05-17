@@ -1,18 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:elevation="4dp"
+            app:title="@string/today"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <com.haibin.calendarview.CalendarView
+            android:id="@+id/cv_calendar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:calendar_height="40dp"
+            app:current_day_text_color="@color/black"
+            app:current_month_text_color="@color/black"
+            app:day_text_size="14sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintRight_toRightOf="parent"
+            app:month_view="com.wyy.usecalendarview.ScheduleMonthView"
+            app:other_month_text_color="@color/teal_700"
+            app:selected_text_color="@color/black"
+            app:selected_theme_color="@color/purple_700"
+            app:week_background="@android:color/transparent"
+            app:week_bar_height="40dp"
+            app:week_text_color="@color/black"
+            app:week_text_size="14sp"
+            app:month_view_show_mode="mode_all"
+            app:select_mode="single_mode" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_last_year"
+            android:text="@string/last_year"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cv_calendar"
+            app:layout_constraintRight_toLeftOf="@+id/btn_last_month" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_last_month"
+            android:text="@string/last_month"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toRightOf="@+id/btn_last_year"
+            app:layout_constraintTop_toBottomOf="@+id/cv_calendar"
+            app:layout_constraintRight_toLeftOf="@+id/btn_today" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_today"
+            android:text="@string/today"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toRightOf="@+id/btn_last_month"
+            app:layout_constraintTop_toBottomOf="@+id/cv_calendar"
+            app:layout_constraintRight_toLeftOf="@+id/btn_next_month" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_next_month"
+            android:text="@string/next_month"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toRightOf="@+id/btn_today"
+            app:layout_constraintTop_toBottomOf="@+id/cv_calendar"
+            app:layout_constraintRight_toLeftOf="@+id/btn_next_year" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_next_year"
+            android:text="@string/next_year"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toRightOf="@+id/btn_next_month"
+            app:layout_constraintTop_toBottomOf="@+id/cv_calendar"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
